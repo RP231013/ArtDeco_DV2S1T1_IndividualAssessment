@@ -1,0 +1,40 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  background: #333;
+  padding: 1rem;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.hero {
+  text-align: center;
+  padding: 2rem;
+  background: url('https://images.unsplash.com/photo-1584448062042-bf847d8ae0ad?q=80&w=3148&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center;
+  background-size: cover;
+  color: white;
+}
+
+.artworks, .upload-artwork, .login, .register {
+  padding: 2rem;
+}
+
+.artwork-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.artwork-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  flex: 1 1 calc(33.333% - 1rem);
+  box-sizing: border-box;
+}

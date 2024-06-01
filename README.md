@@ -71,3 +71,58 @@ Create a .env file in the backend directory and add the following:
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
 ```
+
+5. Start the backend server:
+```bash
+cd backend
+npm run server
+```
+
+6. Start the frontend server:
+```bash
+cd ../frontend
+npm start
+```
+
+## Usage
+
+- Open your browser and navigate to `http://localhost:3000`.
+- Register a new user or log in with an existing account.
+- Upload artwork by providing the necessary details including an image URL.
+- View all artworks, use sorting and filtering options.
+- Like artworks and if logged in as an admin, delete artworks.
+
+## API Endpoints
+
+### Auth Routes
+- `POST /api/auth/register` - Register a new user
+- `POST /api/auth/login` - Log in a user
+- `GET /api/auth/user` - Get logged-in user details (requires token)
+
+### Artwork Routes
+- `POST /api/artworks` - Upload a new artwork (requires token)
+- `GET /api/artworks` - Get all artworks
+- `DELETE /api/artworks/:id` - Delete an artwork (requires admin token)
+- `POST /api/artworks/:id/like` - Like an artwork (requires token)
+
+## Screenshots
+
+Include some screenshots of the application to give a visual overview of the app.
+
+## Contributing
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes and commit them (`git commit -m 'Add new feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+Your Name - [your-email@example.com](mailto:your-email@example.com)
+
+Project Link: [https://github.com/your-username/art-deco](https://github.com/your-username/art-deco)

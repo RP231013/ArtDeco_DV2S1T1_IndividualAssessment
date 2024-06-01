@@ -108,9 +108,6 @@ npm start
 - `DELETE /api/artworks/:id` - Delete an artwork (requires admin token)
 - `POST /api/artworks/:id/like` - Like an artwork (requires token)
 
-## Screenshots
-
-Include some screenshots of the application to give a visual overview of the app.
 
 ## Contributing
 

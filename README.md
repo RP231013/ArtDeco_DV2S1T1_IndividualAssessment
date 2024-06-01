@@ -50,3 +50,24 @@ Ensure you have the following installed on your machine:
 ```bash
 git clone https://github.com/your-username/art-deco.git
 cd art-deco
+```
+
+2. Install backend dependencies:
+
+```bash
+cd backend
+npm install
+```
+
+3. Install frontend dependencies:
+```bash
+cd ../frontend
+npm install
+```
+
+4. Set up environment variables:
+Create a .env file in the backend directory and add the following:
+```env
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+```

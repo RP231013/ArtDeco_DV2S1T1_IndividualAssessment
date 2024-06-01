@@ -1,6 +1,9 @@
 # Art Deco - Artwork Shop App
 
-Welcome to the Art Deco Artwork Shop App! This application allows users to upload, view, like, comment, and delete artworks. Admin users have the additional capability to delete artworks.
+Welcome to the Art Deco Artwork Shop App! This application allows users to upload, view and like artworks. Admin users have the additional capability to delete artworks.
+
+# Demo Video
+[Watch the demo video here](https://drive.google.com/drive/folders/1rPoQsgTAacX0e-_covBSXQLTowKYogn6?usp=sharing)
 
 ## Table of Contents
 
@@ -121,8 +124,3 @@ Include some screenshots of the application to give a visual overview of the app
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Contact
-
-Your Name - [your-email@example.com](mailto:your-email@example.com)
-
-Project Link: [https://github.com/your-username/art-deco](https://github.com/your-username/art-deco)

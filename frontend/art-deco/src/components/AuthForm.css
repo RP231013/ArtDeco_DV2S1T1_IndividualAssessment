@@ -1,0 +1,52 @@
+body {
+    background-color: antiquewhite;
+    font-family: 'Poiret One', sans-serif;
+  }
+  
+  .auth-form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .auth-form h2 {
+    margin-bottom: 20px;
+  }
+  
+  .auth-form input, .auth-form textarea {
+    width: calc(100% - 20px);
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .auth-form button {
+    background-color: #f0e68c;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: 'Poiret One', sans-serif;
+    margin-top: 10px;
+  }
+  
+  .auth-form p {
+    margin-top: 15px;
+  }
+  
+  .auth-form .error {
+    color: red;
+    margin-top: 10px;
+  }
+  
+  .auth-form .logo {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  

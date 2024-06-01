@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import api from '../api';
 import './Artworks.css';
 
-const Artworks = () => {
+const Artworks = ({ user }) => {
   const [artworks, setArtworks] = useState([]);
 
   useEffect(() => {
@@ -19,8 +19,12 @@ const Artworks = () => {
   }, []);
 
   const handleLike = async (id) => {
-    // Implement like functionality
-    // You can send a POST request to the like endpoint and update the state
+    try {
+      const res = await api.post(`/artworks/${id}/like`);
+      setArtworks(artworks.map((artwork) => (artwork._id === id ? res.data : artwork)));
+    } catch (err) {
+      console.error(err.message);
+    }
   };
 
   const handleDelete = async (id) => {
@@ -32,16 +36,18 @@ const Artworks = () => {
     }
   };
 
+  const isAdmin = user && user.email && user.email.endsWith('@adadmin.com');
+
   return (
     <div className="artworks-container">
       {artworks.map((artwork) => (
         <div className="artwork-card" key={artwork._id}>
-          <img src={artwork.image} alt={artwork.artworkTitle} />
+          <img src={artwork.imageUrl} alt={artwork.artworkTitle} />
           <h3>{artwork.artworkTitle}</h3>
           <p>{artwork.description}</p>
           <div className="card-actions">
             <button onClick={() => handleLike(artwork._id)}>Like</button>
-            {localStorage.getItem('token') && localStorage.getItem('token').endsWith('@adadmin.com') && (
+            {isAdmin && (
               <button onClick={() => handleDelete(artwork._id)}>Delete</button>
             )}
             <span>{artwork.likes} Likes</span>

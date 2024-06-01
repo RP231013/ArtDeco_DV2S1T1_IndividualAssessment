@@ -6,8 +6,9 @@ const ArtworkSchema = new mongoose.Schema({
   dateCreated: { type: Date, required: true },
   medium: { type: String, required: true },
   description: { type: String, required: true },
+  imageUrl: { type: String, required: true },  // Add imageUrl field
   likes: { type: Number, default: 0 },
-  comments: [{ text: String, date: Date, user: String }],
+  comments: [{ text: String, date: Date, user: String }]
 });
 
 module.exports = mongoose.model('Artwork', ArtworkSchema);

@@ -1,24 +1,25 @@
 const Artwork = require('../models/Artwork');
 
 exports.createArtwork = async (req, res) => {
-  const { artworkTitle, artist, dateCreated, medium, description } = req.body;
-
-  try {
-    const newArtwork = new Artwork({
-      artworkTitle,
-      artist,
-      dateCreated,
-      medium,
-      description,
-    });
-
-    const artwork = await newArtwork.save();
-    res.json(artwork);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server error');
-  }
-};
+    const { artworkTitle, artist, dateCreated, medium, description, imageUrl } = req.body;
+  
+    try {
+      const newArtwork = new Artwork({
+        artworkTitle,
+        artist,
+        dateCreated,
+        medium,
+        description,
+        imageUrl  // Include imageUrl in the artwork creation
+      });
+  
+      const artwork = await newArtwork.save();
+      res.json(artwork);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server error');
+    }
+  };
 
 exports.getArtworks = async (req, res) => {
   try {
@@ -31,22 +32,43 @@ exports.getArtworks = async (req, res) => {
 };
 
 exports.deleteArtwork = async (req, res) => {
-  try {
-    const artwork = await Artwork.findById(req.params.id);
-    if (!artwork) {
-      return res.status(404).json({ msg: 'Artwork not found' });
+    try {
+      console.log('req.user:', req.user);  // Log the user object
+  
+      const artwork = await Artwork.findById(req.params.id);
+      if (!artwork) {
+        console.log('Artwork not found');
+        return res.status(404).json({ msg: 'Artwork not found' });
+      }
+  
+      // Check if user is an admin
+      if (!req.user || !req.user.email || !req.user.email.endsWith('@adadmin.com')) {
+        console.log('User not authorized:', req.user.email);
+        return res.status(403).json({ msg: 'User not authorized' });
+      }
+  
+      await Artwork.findByIdAndDelete(req.params.id);  // Use findByIdAndDelete to remove the artwork
+      res.json({ msg: 'Artwork removed' });
+    } catch (err) {
+      console.error('Server error:', err.message);
+      res.status(500).send('Server error');
     }
+  };
 
-    // Check if user is an admin
-    const adminEmail = req.user.email.endsWith('@adadmin.com');
-    if (!adminEmail) {
-      return res.status(403).json({ msg: 'User not authorized' });
+exports.likeArtwork = async (req, res) => {
+    try {
+      const artwork = await Artwork.findById(req.params.id);
+      if (!artwork) {
+        return res.status(404).json({ msg: 'Artwork not found' });
+      }
+  
+      artwork.likes += 1;
+      await artwork.save();
+  
+      res.json(artwork);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server error');
     }
-
-    await artwork.remove();
-    res.json({ msg: 'Artwork removed' });
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server error');
-  }
-};
+  };
+  

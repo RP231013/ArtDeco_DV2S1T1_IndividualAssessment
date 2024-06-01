@@ -9,6 +9,8 @@ body {
   justify-content: space-around;
   background: #333;
   padding: 1rem;
+  color: antiquewhite;
+  font-weight: bold;
 }
 
 .navbar a {
@@ -54,4 +56,13 @@ body {
   box-sizing: border-box;
 }
 
-
+.logoutBtn{
+  background-color: #333;
+  color: whitesmoke;
+  padding: 0.3rem;
+  border-radius: 7px;
+  font-family: "Poiret One", sans-serif;
+  box-shadow: none;
+  text-shadow: none;
+  border: none;
+}

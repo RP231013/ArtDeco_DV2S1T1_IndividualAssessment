@@ -10,7 +10,7 @@ exports.createArtwork = async (req, res) => {
         dateCreated,
         medium,
         description,
-        imageUrl  // Include imageUrl in the artwork creation
+        imageUrl 
       });
   
       const artwork = await newArtwork.save();
@@ -33,7 +33,7 @@ exports.getArtworks = async (req, res) => {
 
 exports.deleteArtwork = async (req, res) => {
     try {
-      console.log('req.user:', req.user);  // Log the user object
+      console.log('req.user:', req.user);  
   
       const artwork = await Artwork.findById(req.params.id);
       if (!artwork) {
@@ -41,13 +41,13 @@ exports.deleteArtwork = async (req, res) => {
         return res.status(404).json({ msg: 'Artwork not found' });
       }
   
-      // Check if user is an admin
+      
       if (!req.user || !req.user.email || !req.user.email.endsWith('@adadmin.com')) {
         console.log('User not authorized:', req.user.email);
         return res.status(403).json({ msg: 'User not authorized' });
       }
   
-      await Artwork.findByIdAndDelete(req.params.id);  // Use findByIdAndDelete to remove the artwork
+      await Artwork.findByIdAndDelete(req.params.id);  
       res.json({ msg: 'Artwork removed' });
     } catch (err) {
       console.error('Server error:', err.message);

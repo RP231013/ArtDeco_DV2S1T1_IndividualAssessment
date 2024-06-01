@@ -1,0 +1,41 @@
+.artworks-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  padding: 16px;
+}
+
+.artwork-card {
+  background-color: beige;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 23%; /* Approximately 1/4 of the screen with some gap */
+  padding: 16px;
+  text-align: center;
+  font-family: 'Great Vibes', cursive; /* Custom font */
+}
+
+.artwork-card img {
+  max-width: 100%;
+  border-radius: 15px;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 8px;
+}
+
+.card-actions button {
+  background-color: #f0e68c; /* Light beige color */
+  border: none;
+  border-radius: 10px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-family: 'Great Vibes', cursive; /* Custom font */
+}
+
+.card-actions span {
+  align-self: center;
+}
